@@ -5,7 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +17,8 @@ public class Subject
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int subjectID;
 	
-	@OneToMany
-	protected Users user;
+	@Column
+	protected int userID;
 	
 	@Column
 	protected String name;
@@ -41,12 +42,12 @@ public class Subject
 		return subjectID;
 	}
 
-	public Users getUser() {
-		return user;
+	public int getUserID() {
+		return userID;
 	}
 	
 	public String toString()
 	{
-		return subjectID + ", " + user.toString() + ", " + name + "\n";
+		return subjectID + ", " + userID + ", " + name + "\n";
 	}
 }

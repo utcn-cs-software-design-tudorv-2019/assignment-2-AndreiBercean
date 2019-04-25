@@ -27,7 +27,13 @@
       <artifactId>postgresql</artifactId>
       <version>42.2.2.jre7</version>
     </dependency>
- 
+ 	
+ 	<dependency>
+  	  <groupId>javax.inject</groupId>
+	  <artifactId>javax.inject</artifactId>
+	  <version>1</version>
+	</dependency>
+ 	
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>

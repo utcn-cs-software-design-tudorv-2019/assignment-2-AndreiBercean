@@ -16,22 +16,22 @@ public class Enrolment
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int enrolmentID;
 	
-	@ManyToOne
-	protected Student student;
+	@Column
+	protected int studentID;
 	
-	@ManyToOne
-	protected Subject subject;
+	@Column
+	protected int subjectID;
 	
 	@Column
 	protected float grade;
 	
-	/*public Enrolment(int id, int s, int sub, float g)
+	public Enrolment(int id, int s, int sub, float g)
 	{
-		ID = id;
+		enrolmentID = id;
 		studentID = s;
 		subjectID = sub;
 		grade = g;
-	}*/
+	}
 
 	public float getGrade() {
 		return grade;
@@ -45,16 +45,16 @@ public class Enrolment
 		return enrolmentID;
 	}
 
-	public Student getStudent() {
-		return student;
+	public int getStudent() {
+		return studentID;
 	}
 
-	public Subject getSubject() {
-		return subject;
+	public int getSubject() {
+		return subjectID;
 	}
 	
 	public String toString()
 	{
-		return"\nID = " + enrolmentID + "\nstudent = " + student.toString() + "\nsubjectID = " + subject.toString() + "\ngrade = " + grade;
+		return"\nID = " + enrolmentID + "\nstudent = " + studentID + "\nsubjectID = " + subjectID + "\ngrade = " + grade;
 	}
 }

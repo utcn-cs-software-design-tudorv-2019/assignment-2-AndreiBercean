@@ -9,9 +9,11 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import entity.Student;
 
 public class StudentRepository {
+	SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+	
 	public void delete(Student u)
 	{
-		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+		
         Session session = sessionFactory.openSession();
         
         session.beginTransaction();
@@ -23,7 +25,6 @@ public class StudentRepository {
 	
 	public void create(Student u)
 	{
-		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         
         session.beginTransaction();
@@ -35,7 +36,6 @@ public class StudentRepository {
 	
 	public void update(Student u)
 	{
-		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         
         session.beginTransaction();
@@ -59,9 +59,7 @@ public class StudentRepository {
 	
 	public List<Student> select()
 	{
-		SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
-        
         List<Student> rez = session.createCriteria(Student.class).list();
         session.close();
         return rez;

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -16,17 +17,17 @@ public class Student
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int studentID;
 	
-	@OneToOne
-	protected Users user;
+	@Column
+	protected int userID;
 	
 	@Column
 	protected int group;
 	
-	/*public Student(int id, int g)
+	public Student(int id, int g)
 	{
 		userID = id;
 		group = g;
-	}*/
+	}
 	
 	public int getGroup()
 	{
@@ -36,5 +37,13 @@ public class Student
 	public void setGroup(int group)
 	{
 		this.group = group;
+	}
+
+	public int getStudentID() {
+		return studentID;
+	}
+
+	public int getUserID() {
+		return userID;
 	}
 }

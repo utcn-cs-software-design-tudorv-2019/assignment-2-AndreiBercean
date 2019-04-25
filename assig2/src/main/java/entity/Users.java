@@ -27,6 +27,16 @@ public class Users
 		age = a;
 	}
 	
+	public Users(int ID, String name, int a, String pass) {
+		userID = ID;
+		userName = name;
+		age = a;
+	}
+	
+	public Users(int ID) {
+		userID = ID;
+	}
+	
 	public Users() {
 	}
 
